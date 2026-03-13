@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD Asadullah Al Galib | Portfolio</title>
+  <meta name="description" content="Professional portfolio website of MD Asadullah Al Galib" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121933;
+      --card: rgba(255,255,255,0.06);
+      --text: #f5f7ff;
+      --muted: #b6bfd6;
+      --line: rgba(255,255,255,0.12);
+      --accent: #7c9cff;
+      --accent-2: #8ef0d0;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124,156,255,0.22), transparent 18%),
+        radial-gradient(circle at 85% 10%, rgba(142,240,208,0.14), transparent 20%),
+        linear-gradient(180deg, #08101f 0%, #0b1020 45%, #0d1226 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 42px);
+      margin-bottom: 14px;
+      letter-spacing: 0.3px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 36px;
+      font-size: 17px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-2);
+      background: rgba(142,240,208,0.08);
+      border: 1px solid rgba(142,240,208,0.15);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(8, 12, 26, 0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 74px;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+  .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+    .nav-links a {
+      color: var(--muted);
+      transition: 0.25s ease;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      display: flex;
+      align-items: center;
+      padding: 60px 0 40px;
+    }
+
+   .hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 42px;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+    .eyebrow {
+      color: var(--accent-2);
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 1.02;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 .accent {
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #94aeff);
+      color: #07101f;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat h3 {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .stat p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(124,156,255,0.32), transparent 70%);
+      pointer-events: none;
+    }
+
+    .profile-box {
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(124,156,255,0.14), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      padding: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px;
+      margin: 0 auto 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      font-size: 34px;
+      font-weight: 700;
+      color: #07101f;
+    }
+
+    .profile-box h3 {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    .profile-box p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 15px;
+    }
+
+    .info-item span:first-child {
+      color: var(--muted);
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+    }
+
+    .about-text p,
+    .card p,
+    .timeline p,
+    .project p,
+    .contact-text p {
+      color: var(--muted);
+    }
+
+    .about-points {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .about-point {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      flex-shrink: 0;
+    }
+
+    .skill-group h3,
+    .timeline h3,
+    .project h3,
+    .contact-box h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .project-tag {
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(124,156,255,0.12);
+      color: #c7d5ff;
+      border: 1px solid rgba(124,156,255,0.2);
+      white-space: nowrap;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .project-link {
+      color: var(--accent-2);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .timeline {
+      position: relative;
+    }
+
+    .timeline-items {
+      display: grid;
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .timeline-item {
+      padding-left: 18px;
+      border-left: 2px solid rgba(124,156,255,0.35);
+    }
+
+    .timeline-item h4 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item .meta {
+      color: var(--accent-2);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .resume-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, rgba(124,156,255,0.18), rgba(142,240,208,0.10));
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(124,156,255,0.65);
+      background: rgba(255,255,255,0.06);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: 0.6s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 48px;
+      }
+
+      .quick-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+@media (max-width: 760px) {
+
+  .menu-btn {
+    display: inline-flex;
+  }
+
+  ...
+  
+}
+
+@media (max-width: 480px) {
+
+.hero p{
+font-size:16px;
+}
+
+.section-title{
+font-size:28px;
+}
+
+.btn{
+width:100%;
+}
+
+.quick-stats{
+grid-template-columns:1fr;
+}
+
+}      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">Galib<span>.</span></a>
+      <button class="menu-btn" id="menuBtn">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="fade-up show">
+          <div class="eyebrow">Professional Portfolio</div>
+          <h1>MD Asadullah Al <span class="accent">Galib</span></h1>
+          <p>
+            Mathematics undergraduate focused on data science, machine learning, problem solving, and building a strong professional career with real projects and practical skills.
+          </p>
+          <div class="cta-group">
+            <a href="#projects" class="btn btn-primary">View My Projects</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          </div>
+          <div class="quick-stats">
+            <div class="stat">
+              <h3>05+</h3>
+              <p>Project ideas to showcase real capability</p>
+            </div>
+            <div class="stat">
+              <h3>01</h3>
+              <p>Focused professional identity instead of random noise</p>
+            </div>
+            <div class="stat">
+              <h3>100%</h3>
+              <p>Editable structure for your future growth</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card fade-up">
+          <div class="profile-box">
+            <img src="cv-img.jpeg" class="avatar">
+            <h3>Galib</h3>
+            <p>Aspiring Data Analyist | Undergraduate Mathematics Student</p>
+          </div>
+          <div class="info-list">
+            <div class="info-item"><span>Email</span><span>algalib2005@gmail.com</span></div>
+            <div class="info-item"><span>Location</span><span>Sylhet,Bangladesh</span></div>
+<div class="info-item"><span>WhatsApp</span><span>01837386096</span></div>
+            <div class="info-item"><span>LinkedIn</span><span>https://www.linkedin.com/in/md-asadullah-al-galib-347482340</span></div>
+            <div class="info-item"><span>Facebook</span><span>https://www.facebook.com/md.asadullah.al.galib.213998</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="tag fade-up">About Me</div>
+        <h2 class="section-title fade-up">A website should sell your value, not waste time.</h2>
+        <p class="section-subtitle fade-up">
+          This layout is built to make you look serious, clean, and professional. No childish clutter. No useless animation overdose. Just clear identity, skills, projects, and contact points.
+        </p>
+
+        <div class="grid-2">
+          <div class="card about-text fade-up">
+            <p>
+              I am a Mathematics undergraduate with strong interest in data science, machine learning, analytics, and problem solving. I want to build a career where mathematics, computation, and real-world decision making come together.
+            </p>
+            <div class="about-points">
+              <div class="about-point">
+                <div class="dot"></div>
+                <div>
+                  <strong>Focused direction:</strong>
+                  <p>I am building toward a professional path in data science and machine learning instead of staying vague.</p>
+                </div>
+              </div>
+              <div class="about-point">
+                <div class="dot"></div>
+                <div>
+                  <strong>Analytical mindset:</strong>
+                  <p>My mathematics background helps me understand logic, modeling, and quantitative reasoning deeply.</p>
+                </div>
+              </div>
+              <div class="about-point">
+                <div class="dot"></div>
+                <div>
+                  <strong>Growth model:</strong>
+                  <p>I want this website to evolve with projects, certifications, internships, achievements, and research.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card fade-up">
+            <h3 style="font-size: 22px; margin-bottom: 16px;">What this website should do</h3>
+            <div class="about-points">
+              <div class="about-point">
+                <div class="dot"></div>
+                <div>
+                  <strong>Give instant clarity</strong>
+                  <p>Visitors should know who you are within 5 seconds.</p>
+                </div>
+              </div>
+              <div class="about-point">
+                <div class="dot"></div>
+                <div>
+                  <strong>Show proof of work</strong>
+                  <p>Your projects and practical output matter more than fancy words.</p>
+                </div>
+              </div>
+              <div class="about-point">
+                <div class="dot"></div>
+                <div>
+                  <strong>Support hiring</strong>
+                  <p>Recruiters should be able to find your resume, GitHub, LinkedIn, and contact details instantly.</p>
+                </div>
+              </div>
+              <div class="about-point">
+                <div class="dot"></div>
+                <div>
+                  <strong>Look professional</strong>
+                  <p>Good spacing, clean typography, and structure beat flashy nonsense.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="tag fade-up">Skills</div>
+        <h2 class="section-title fade-up">What you can do should be visible fast.</h2>
+        <p class="section-subtitle fade-up">
+          Do not claim everything. Keep only skills you can defend in an interview.
+        </p>
+
+        <div class="grid-3">
+          <div class="card skill-group fade-up">
+            <h3>Technical Skills</h3>
+            <div class="skill-list">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">SQL</span>
+              <span class="skill-chip">HTML</span>
+              <span class="skill-chip">CSS</span>
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">Git</span>
+              <span class="skill-chip">Excel</span>
+            </div>
+          </div>
+
+          <div class="card skill-group fade-up">
+            <h3>Data Science</h3>
+            <div class="skill-list">
+              <span class="skill-chip">Pandas</span>
+              <span class="skill-chip">NumPy</span>
+              <span class="skill-chip">Matplotlib</span>
+              <span class="skill-chip">Scikit-learn</span>
+              <span class="skill-chip">Data Cleaning</span>
+              <span class="skill-chip">EDA</span>
+              <span class="skill-chip">Statistics</span>
+            </div>
+          </div>
+
+          <div class="card skill-group fade-up">
+            <h3>Professional Strengths</h3>
+            <div class="skill-list">
+              <span class="skill-chip">Problem Solving</span>
+              <span class="skill-chip">Analytical Thinking</span>
+              <span class="skill-chip">Communication</span>
+              <span class="skill-chip">Research Mindset</span>
+              <span class="skill-chip">Fast Learning</span>
+              <span class="skill-chip">Consistency</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="tag fade-up">Projects</div>
+        <h2 class="section-title fade-up">Projects are the real backbone of your website.</h2>
+        <p class="section-subtitle fade-up">
+          Replace these demo entries with your actual work. Without real projects, this site becomes decoration.
+        </p>
+
+        <div class="grid-3">
+          <article class="card project fade-up">
+            <div class="project-top">
+              <h3>Student Result Analysis Dashboard</h3>
+              <span class="project-tag">Data Analysis</span>
+            </div>
+            <p>
+              Built a dashboard-style analysis project to explore student performance trends, subject-wise patterns, and summary metrics for better academic decision making.
+            </p>
+            <div class="skill-list" style="margin-top: 16px;">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Pandas</span>
+              <span class="skill-chip">Matplotlib</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub</a>
+              <a href="#" class="project-link">Case Study</a>
+            </div>
+          </article>
+
+          <article class="card project fade-up">
+            <div class="project-top">
+              <h3>House Price Prediction Model</h3>
+              <span class="project-tag">Machine Learning</span>
+            </div>
+            <p>
+              Created a regression-based machine learning model for predicting house prices using cleaned data, feature selection, training, and evaluation.
+            </p>
+            <div class="skill-list" style="margin-top: 16px;">
+              <span class="skill-chip">Scikit-learn</span>
+              <span class="skill-chip">NumPy</span>
+              <span class="skill-chip">Python</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub</a>
+              <a href="#" class="project-link">Demo</a>
+            </div>
+          </article>
+
+          <article class="card project fade-up">
+            <div class="project-top">
+              <h3>Personal Expense Tracker</h3>
+              <span class="project-tag">Web App</span>
+            </div>
+            <p>
+              Designed a simple expense tracking website to record spending, categorize transactions, and view monthly summaries through a clean interface.
+            </p>
+            <div class="skill-list" style="margin-top: 16px;">
+              <span class="skill-chip">HTML</span>
+              <span class="skill-chip">CSS</span>
+              <span class="skill-chip">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub</a>
+              <a href="#" class="project-link">Live Site</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="tag fade-up">Experience & Education</div>
+        <h2 class="section-title fade-up">Your trajectory matters.</h2>
+        <p class="section-subtitle fade-up">
+          Even if you do not have job experience yet, you still have education, responsibilities, volunteering, achievements, and certifications.
+        </p>
+
+        <div class="grid-2">
+          <div class="card timeline fade-up">
+            <h3>Education</h3>
+            <div class="timeline-items">
+              <div class="timeline-item">
+                <h4>Bachelor of Science in Mathematics</h4>
+                <div class="meta">Current</div>
+                <p>Shahjalal University of Science and Technology</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Relevant Focus</h4>
+                <div class="meta">Academic Direction</div>
+                <p>Statistics, analytical thinking, modeling, quantitative reasoning, and future transition into data science or machine learning.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card timeline fade-up">
+            <h3>Certificates / Achievements</h3>
+            <div class="timeline-items">
+              <div class="timeline-item">
+                <h4>Add Your Best Certification Here</h4>
+                <div class="meta">Example</div>
+                <p>Google Data Analytics, Python for Data Science, SQL, Machine Learning, or any serious course you actually completed.</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Add Leadership / Club Role Here</h4>
+                <div class="meta">Example</div>
+                <p>Use this section for association work, event organizing, volunteering, mentoring, or any proof that you can contribute beyond academics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card resume-box fade-up" style="margin-top: 24px;">
+          <div>
+            <h3 style="font-size: 24px; margin-bottom: 8px;">Resume</h3>
+            <p>Attach your PDF resume here. Do not leave this broken. Broken links make you look careless.</p>
+          </div>
+          <a href="cv.pdf" download class="btn btn-primary">Download CV</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="tag fade-up">Contact</div>
+        <h2 class="section-title fade-up">Make it easy for serious people to reach you.</h2>
+        <p class="section-subtitle fade-up">
+          If someone wants to hire, collaborate, or ask about your work, they should not struggle to contact you.
+        </p>
+
+        <div class="contact-wrap">
+          <div class="card contact-text fade-up">
+            <h3 style="font-size: 24px; margin-bottom: 12px;">Let’s Connect</h3>
+            <p>
+              Use real contact details here. This demo form uses a fake success message only. To make the form actually work, connect it with Formspree, Netlify Forms, or your own backend.
+            </p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <span>Email</span>
+                algalib2005@gmail.com
+              </div>
+              <div class="contact-item">
+                <span>Linkedin</span>
+                https://www.linkedin.com/in/md-asadullah-al-galib-347482340</span>
+              </div>
+              <div class="contact-item">
+                <span>Facebook</span>
+                https://www.facebook.com/md.asadullah
+.al.galib.213998
+              </div>
+<div class="contact-item">
+                <span>WhatsApp</span> 01837386096 </div>
+
+              <div class="contact-item">
+                <span>Location</span>
+                Sylhet, Bangladesh
+              </div>
+            </div>
+          </div>
+
+          <div class="card contact-box fade-up">
+            <h3>Quick Message</h3>
+            <form id="contactForm">
+              <input type="text" id="name" placeholder="Your name" required />
+              <input type="email" id="email" placeholder="Your email" required />
+              <textarea id="message" placeholder="Write your message" required></textarea>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> MD Asadullah Al Galib. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const sections = document.querySelectorAll('main section');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navAnchors.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navAnchors.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      if (!name) return;
+      alert(`Thanks, ${name}. This demo form is working on the front end only. Connect it to a real form service before publishing.`);
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+ 
